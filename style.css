@@ -9,7 +9,7 @@ body {
 }
 
 header {
-    background-color: #b22222;
+    background-color: #000000;
     color: white;
     text-align: center;
 }
@@ -19,6 +19,25 @@ header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/banner.jpg');
     background-size: cover;
     background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem; /* Menor espaço entre imagem e título */
+}
+
+.banner::after {
+    content: "";
+    display: block;
+    background: url('img/jp.png') no-repeat center center;
+    background-size: contain; /* Mantém proporção original */
+    width: 40px;
+    height: 40px;
+    position: static;
+    opacity: 0.95;
+    margin-right: 0.3rem; /* Pouca distância do título */
+    pointer-events: none;
 }
 
 nav {
@@ -121,5 +140,14 @@ footer {
     
     nav li {
         margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .banner::after {
+        width: 120px;
+        height: 120px;
+        background-size: 120px 120px;
+        right: 1rem;
     }
 }
